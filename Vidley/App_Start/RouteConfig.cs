@@ -12,6 +12,11 @@ namespace Vidley
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+                "MoviesByReleaseDate",
+                "movies/released/{year}",
+                new { Controller = "Movies", action = "ByReleaseYear" },
+                new { year = @"\d{4}" });
 
             routes.MapRoute(
                 name: "Default",
